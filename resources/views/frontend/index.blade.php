@@ -61,13 +61,13 @@
                             </div>
                         </div><!-- End testimonial item -->
                         <!-- 
-                    <div class="swiper-slide">
-                      <div class="services-block">
-                        <i class="bi bi-card-checklist"></i>
-                        <span>BRAND IDENTITY</span>
-                        <p class="separator">To an English person, it will seem like simplified English,told me what </p>
-                      </div>
-                    </div>End testimonial item -->
+                                        <div class="swiper-slide">
+                                          <div class="services-block">
+                                            <i class="bi bi-card-checklist"></i>
+                                            <span>BRAND IDENTITY</span>
+                                            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+                                          </div>
+                                        </div>End testimonial item -->
 
                         <div class="swiper-slide">
                             <div class="services-block">
@@ -115,87 +115,27 @@
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".filter-app">App</li>
-                            <li data-filter=".filter-card">Card</li>
-                            <li data-filter=".filter-web">Web</li>
+                            @foreach ($categories as $item)
+                                <li data-filter=".filter-{{ $item->name }}">{{ $item->name }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
 
                 <div class="row portfolio-container">
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>App 1</h4>
-                            <p>App</p>
-                            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
+                    @foreach ($data as $i)
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $i->category->name }}">
+                            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>{{ $i->name }}</h4>
+                                <p>{{ $i->category->name }}</p>
+                                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+                                <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                        class="bx bx-link"></i></a>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Web 3</h4>
-                            <p>Web</p>
-                            <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>App 2</h4>
-                            <p>App</p>
-                            <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Card 2</h4>
-                            <p>Card</p>
-                            <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Web 2</h4>
-                            <p>Web</p>
-                            <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>App 3</h4>
-                            <p>App</p>
-                            <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
 
             </div>
@@ -205,69 +145,69 @@
         <!-- ======= Journal Section ======= -->
         <!-- <div id="journal" class="text-left paddsection">
 
-              <div class="container">
-                <div class="section-title text-center">
-                  <h2>journal</h2>
-                </div>
-              </div>
+                                  <div class="container">
+                                    <div class="section-title text-center">
+                                      <h2>journal</h2>
+                                    </div>
+                                  </div>
 
-              <div class="container">
-                <div class="journal-block">
-                  <div class="row">
+                                  <div class="container">
+                                    <div class="journal-block">
+                                      <div class="row">
 
-                    <div class="col-lg-4 col-md-6">
-                      <div class="journal-info">
+                                        <div class="col-lg-4 col-md-6">
+                                          <div class="journal-info">
 
-                        <a href="blog-single.html"><img src="assets/img/blog-post-1.jpg" class="img-responsive" alt="img"></a>
+                                            <a href="blog-single.html"><img src="assets/img/blog-post-1.jpg" class="img-responsive" alt="img"></a>
 
-                        <div class="journal-txt">
+                                            <div class="journal-txt">
 
-                          <h4><a href="blog-single.html">SO LETS MAKE THE MOST IS BEAUTIFUL</a></h4>
-                          <p class="separator">To an English person, it will seem like simplified English
-                          </p>
+                                              <h4><a href="blog-single.html">SO LETS MAKE THE MOST IS BEAUTIFUL</a></h4>
+                                              <p class="separator">To an English person, it will seem like simplified English
+                                              </p>
 
-                        </div>
+                                            </div>
 
-                      </div>
-                    </div>
+                                          </div>
+                                        </div>
 
-                    <div class="col-lg-4 col-md-6">
-                      <div class="journal-info">
+                                        <div class="col-lg-4 col-md-6">
+                                          <div class="journal-info">
 
-                        <a href="blog-single.html"><img src="assets/img/blog-post-2.jpg" class="img-responsive" alt="img"></a>
+                                            <a href="blog-single.html"><img src="assets/img/blog-post-2.jpg" class="img-responsive" alt="img"></a>
 
-                        <div class="journal-txt">
+                                            <div class="journal-txt">
 
-                          <h4><a href="blog-single.html">WE'RE GONA MAKE DREAMS COMES</a></h4>
-                          <p class="separator">To an English person, it will seem like simplified English
-                          </p>
+                                              <h4><a href="blog-single.html">WE'RE GONA MAKE DREAMS COMES</a></h4>
+                                              <p class="separator">To an English person, it will seem like simplified English
+                                              </p>
 
-                        </div>
+                                            </div>
 
-                      </div>
-                    </div>
+                                          </div>
+                                        </div>
 
-                    <div class="col-lg-4 col-md-6">
-                      <div class="journal-info">
+                                        <div class="col-lg-4 col-md-6">
+                                          <div class="journal-info">
 
-                        <a href="blog-single.html"><img src="assets/img/blog-post-3.jpg" class="img-responsive" alt="img"></a>
+                                            <a href="blog-single.html"><img src="assets/img/blog-post-3.jpg" class="img-responsive" alt="img"></a>
 
-                        <div class="journal-txt">
+                                            <div class="journal-txt">
 
-                          <h4><a href="blog-single.html">NEW LIFE CIVILIZATIONS TO BOLDLY</a></h4>
-                          <p class="separator">To an English person, it will seem like simplified English
-                          </p>
+                                              <h4><a href="blog-single.html">NEW LIFE CIVILIZATIONS TO BOLDLY</a></h4>
+                                              <p class="separator">To an English person, it will seem like simplified English
+                                              </p>
 
-                        </div>
+                                            </div>
 
-                      </div>
-                    </div>
+                                          </div>
+                                        </div>
 
-                  </div>
-                </div>
-              </div>
+                                      </div>
+                                    </div>
+                                  </div>
 
-            </div>End Journal Section -->
+                                </div>End Journal Section -->
 
         <!-- ======= Contact Section ======= -->
         <div id="contact" class="paddsection">
