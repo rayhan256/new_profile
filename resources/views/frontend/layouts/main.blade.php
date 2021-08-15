@@ -21,7 +21,7 @@
 
 <body>
 
-    @include('frontend/templates/navbar')
+    @include('frontend/templates/navbar', ['content' => $content])
 
     @yield('content')
 
@@ -30,10 +30,11 @@
         <div class="container">
             <div class="socials-media text-center">
                 <ul class="list-unstyled">
-                    <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                    <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-                    <li><a href="#"><i class="bi bi-instagram"></i></a></li>
-                    <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                    <li><a href="https://www.facebook.com/rayhan.r.aziz/"><i class="bi bi-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/rayhangamawanto"><i class="bi bi-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/ray_azizg/"><i class="bi bi-instagram"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/rayhan-rahmat-aziz-gamawanto-720960206/"><i
+                                class="bi bi-linkedin"></i></a></li>
                 </ul>
             </div>
             <p>&copy; Copyrights Rayhan. All rights reserved.</p>

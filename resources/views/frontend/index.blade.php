@@ -1,4 +1,4 @@
-@extends('frontend/layouts/main')
+@extends('frontend/layouts/main', ['content' => 'home'])
 @section('content')
     <!-- ======= Hero Section ======= -->
     <div id="hero" class="home">
@@ -10,10 +10,11 @@
                 <p>Designer, Developer, Freelancer</p>
 
                 <ul class="list-unstyled list-social">
-                    <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                    <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-                    <li><a href="#"><i class="bi bi-instagram"></i></a></li>
-                    <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                    <li><a href="https://www.facebook.com/rayhan.r.aziz/"><i class="bi bi-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/rayhangamawanto"><i class="bi bi-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/ray_azizg/"><i class="bi bi-instagram"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/rayhan-rahmat-aziz-gamawanto-720960206/"><i
+                                class="bi bi-linkedin"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -61,13 +62,13 @@
                             </div>
                         </div><!-- End testimonial item -->
                         <!-- 
-                                        <div class="swiper-slide">
-                                          <div class="services-block">
-                                            <i class="bi bi-card-checklist"></i>
-                                            <span>BRAND IDENTITY</span>
-                                            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
-                                          </div>
-                                        </div>End testimonial item -->
+                                                                    <div class="swiper-slide">
+                                                                      <div class="services-block">
+                                                                        <i class="bi bi-card-checklist"></i>
+                                                                        <span>BRAND IDENTITY</span>
+                                                                        <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+                                                                      </div>
+                                                                    </div>End testimonial item -->
 
                         <div class="swiper-slide">
                             <div class="services-block">
@@ -125,13 +126,13 @@
                 <div class="row portfolio-container">
                     @foreach ($data as $i)
                         <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $i->category->name }}">
-                            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                            <img src="data:image/png;base64,{{ $i->thumbnail }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>{{ $i->name }}</h4>
                                 <p>{{ $i->category->name }}</p>
-                                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
+                                <a href="data:image/png;base64,{{ $i->thumbnail }}" data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                <a href="/portfolio/{{ $i->id }}" class="details-link" title="More Details"><i
                                         class="bx bx-link"></i></a>
                             </div>
                         </div>
@@ -145,69 +146,69 @@
         <!-- ======= Journal Section ======= -->
         <!-- <div id="journal" class="text-left paddsection">
 
-                                  <div class="container">
-                                    <div class="section-title text-center">
-                                      <h2>journal</h2>
-                                    </div>
-                                  </div>
+                                                              <div class="container">
+                                                                <div class="section-title text-center">
+                                                                  <h2>journal</h2>
+                                                                </div>
+                                                              </div>
 
-                                  <div class="container">
-                                    <div class="journal-block">
-                                      <div class="row">
+                                                              <div class="container">
+                                                                <div class="journal-block">
+                                                                  <div class="row">
 
-                                        <div class="col-lg-4 col-md-6">
-                                          <div class="journal-info">
+                                                                    <div class="col-lg-4 col-md-6">
+                                                                      <div class="journal-info">
 
-                                            <a href="blog-single.html"><img src="assets/img/blog-post-1.jpg" class="img-responsive" alt="img"></a>
+                                                                        <a href="blog-single.html"><img src="assets/img/blog-post-1.jpg" class="img-responsive" alt="img"></a>
 
-                                            <div class="journal-txt">
+                                                                        <div class="journal-txt">
 
-                                              <h4><a href="blog-single.html">SO LETS MAKE THE MOST IS BEAUTIFUL</a></h4>
-                                              <p class="separator">To an English person, it will seem like simplified English
-                                              </p>
+                                                                          <h4><a href="blog-single.html">SO LETS MAKE THE MOST IS BEAUTIFUL</a></h4>
+                                                                          <p class="separator">To an English person, it will seem like simplified English
+                                                                          </p>
 
-                                            </div>
+                                                                        </div>
 
-                                          </div>
-                                        </div>
+                                                                      </div>
+                                                                    </div>
 
-                                        <div class="col-lg-4 col-md-6">
-                                          <div class="journal-info">
+                                                                    <div class="col-lg-4 col-md-6">
+                                                                      <div class="journal-info">
 
-                                            <a href="blog-single.html"><img src="assets/img/blog-post-2.jpg" class="img-responsive" alt="img"></a>
+                                                                        <a href="blog-single.html"><img src="assets/img/blog-post-2.jpg" class="img-responsive" alt="img"></a>
 
-                                            <div class="journal-txt">
+                                                                        <div class="journal-txt">
 
-                                              <h4><a href="blog-single.html">WE'RE GONA MAKE DREAMS COMES</a></h4>
-                                              <p class="separator">To an English person, it will seem like simplified English
-                                              </p>
+                                                                          <h4><a href="blog-single.html">WE'RE GONA MAKE DREAMS COMES</a></h4>
+                                                                          <p class="separator">To an English person, it will seem like simplified English
+                                                                          </p>
 
-                                            </div>
+                                                                        </div>
 
-                                          </div>
-                                        </div>
+                                                                      </div>
+                                                                    </div>
 
-                                        <div class="col-lg-4 col-md-6">
-                                          <div class="journal-info">
+                                                                    <div class="col-lg-4 col-md-6">
+                                                                      <div class="journal-info">
 
-                                            <a href="blog-single.html"><img src="assets/img/blog-post-3.jpg" class="img-responsive" alt="img"></a>
+                                                                        <a href="blog-single.html"><img src="assets/img/blog-post-3.jpg" class="img-responsive" alt="img"></a>
 
-                                            <div class="journal-txt">
+                                                                        <div class="journal-txt">
 
-                                              <h4><a href="blog-single.html">NEW LIFE CIVILIZATIONS TO BOLDLY</a></h4>
-                                              <p class="separator">To an English person, it will seem like simplified English
-                                              </p>
+                                                                          <h4><a href="blog-single.html">NEW LIFE CIVILIZATIONS TO BOLDLY</a></h4>
+                                                                          <p class="separator">To an English person, it will seem like simplified English
+                                                                          </p>
 
-                                            </div>
+                                                                        </div>
 
-                                          </div>
-                                        </div>
+                                                                      </div>
+                                                                    </div>
 
-                                      </div>
-                                    </div>
-                                  </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
 
-                                </div>End Journal Section -->
+                                                            </div>End Journal Section -->
 
         <!-- ======= Contact Section ======= -->
         <div id="contact" class="paddsection">
@@ -233,7 +234,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group contact-block1">
                                             <input type="text" name="name" class="form-control" id="name"
-                                                placeholder="Your Name" required>
+                                                placeholder="What should i call you ?" required>
                                         </div>
                                     </div>
 

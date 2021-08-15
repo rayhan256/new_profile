@@ -17,5 +17,6 @@ class HomeController extends Controller
 
     function portfolio($id) {
          $portfolio = Portfolio::query()->with('gallery')->with('category')->where('id', $id)->first();
+         return view('frontend.portfolio', ['data' => $portfolio]);
     }
 }
